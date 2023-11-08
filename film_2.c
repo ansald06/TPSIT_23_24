@@ -1,9 +1,3 @@
-/*
-author: Bramardi Alessandro
-date:
-es.
-testo:
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
