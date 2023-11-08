@@ -11,33 +11,9 @@ typedef struct {
     char* genere;
     int anno_uscita;
     char* disponibilita;
-} Struttura;
+} Film;
 
-/*
-int leggiFile(Struttura film[]) {
-    FILE*fp=fopen("listafilm.csv","r");
-    int k=0;
-    char riga[LUNG_RIGA];
-    char *tok;
-    while(fgets(riga,LUNG_RIGA,fp)!=NULL) {
-        tok=strtok(riga,",");
-        film[k].n=atoi(tok);
-        tok=strtok(NULL,",");
-        strcpy(film[k].titolo,tok);
-        tok=strtok(NULL,",");
-        strcpy(film[k].genere,tok);
-        tok=strtok(NULL,",");
-        film[k].anno_uscita=atoi(tok);
-        tok=strtok(NULL,",");
-        strcpy(film[k].disponibilita,tok);
-        k++;
-    }
-    fclose(fp);
-    return k;
-}
-*/
-
-void cercaAnno(int anno_scelta, Struttura film[], int cont){
+void cercaAnno(int anno_scelta, Film film[], int cont){
     for(Struttura *k=film;k<film+cont;k++){
         if(anno_scelta==k->anno_uscita){
             printf("%d %s %s %d %s\n",k->n,k->titolo,k->genere,k->anno_uscita,k->disponibilita);
@@ -46,12 +22,12 @@ void cercaAnno(int anno_scelta, Struttura film[], int cont){
 }
 
 int main() {
-    Struttura film[DIM];
+    Film film[DIM];
     char fileName[]="./listafilm.csv";
     char riga[LUNG_RIGA];
     FILE* fp;
     char* campo;
-    Struttura *cont=film;
+    Film *cont=film;
     int c=0;
     int scelta;
     fp=fopen(fileName,"r");
@@ -74,7 +50,7 @@ int main() {
         c++;
     }
     
-    for(Struttura *k=film; k<film+c; k++) {
+    for(Film *k=film; k<film+c; k++) {
         printf("%d %s %s %d %s\n",k->n,k->titolo,k->genere,k->anno_uscita,k->disponibilita);
     }
     
